@@ -26,7 +26,7 @@ but weren't sure the best / most efficient way to implement?
 One way would be to do something like:
 
 <pre>
-class BuoyType < ActiveRecord::Base
+class BuoyType \< ActiveRecord::Base
   NOAA = find_by_name('noaa')
   ..
 end
