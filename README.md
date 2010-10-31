@@ -125,8 +125,8 @@ then your model definition would look like:
       ..
     end
 
-Finally, if you wanted only the :id to be returned from the constant all, rather than
-the entire model, you could do:
+Finally, if you wanted only the :id to be returned from the constant call (rather than
+the entire model) you could do:
 
 
     class AccountStatus < ActiveRecord::Base
