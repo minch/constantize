@@ -6,27 +6,32 @@ module Constantize
   module ClassMethods
     extend ActiveSupport::Memoizable
 
-    def constantize(field)
-      @field = field # Yes, that's an instance variable at the class level
+    # :key => the field name that we are going to use to build the finder
+    # :field => only return this field of data (optional, default is the entire object)
+    def constantize(key, field = nil)
+      # Yes, those are instance variables at the class level
+      @key = key
+      @field = field
     end
 
     def const_missing(*args)
       if args.size == 1
         value = args[0].to_s.downcase
-        value = constant_id_for(@field, value)
+        value = constant_for(@key, value, @field)
         return value if value
       end
 
       super(*args)
     end
 
-    def constant_id_for(field, value)
-      method = "find_by_#{field}"
-
+    def constant_for(key, value, field = nil)
+      method = "find_by_#{key}"
       value = self.send(method, value) rescue nil
-      value.id if value
+      return unless value
+
+      field ? value.send(field) : value
     end
-    memoize :constant_id_for
+    memoize :constant_for
   end
 end
 

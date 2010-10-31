@@ -1,7 +1,7 @@
 class BuoyType < ActiveRecord::Base
   validates_presence_of :name
 
-	require 'constantize'
+  require 'constantize'
 
-	constantize :name
+  constantize :name
 end
