@@ -26,8 +26,8 @@ but weren't sure the best / most efficient way to implement?
 One way would be to do something like:
 
     class BuoyType < ActiveRecord::Base
-    NOAA = find_by_name('noaa')
-    ..
+      NOAA = find_by_name('noaa')
+      ..
     end
 
 which would work but in a production environment could result in a non-trivial amount
