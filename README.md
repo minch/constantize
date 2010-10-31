@@ -109,7 +109,7 @@ this would assume that your account_statuses table looked something like:
     |    ..        |
     +----+---------+
 
-if your table used a different field, say :title, rather than name:
+if your table used a different field, say :title, rather than :name:
 
     +----+---------+
     | id | title   |
