@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Adam Weller"]
   s.email       = ["mincheastwood@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/constantize"
-  s.summary     = %q{Dynamically generated constants for activerecord models}
+  s.summary     = %q{Simple, dynamic and efficient activerecord model constants.}
   s.description = %q{This gem provides dynamically created constants for activerecord models}
 
   s.rubyforge_project = "constantize"
