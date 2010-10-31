@@ -87,6 +87,56 @@ bundle install
 
 ## Usage
 
+In the model that you will be "constantizing" simply add the following to the top:
+
+constantize :key
+
+where :key is the name of the field that will be used to build the finder.
+
+E.g., 
+
+    class AccountStatus < ActiveRecord::Base
+      constantize :name
+      ..
+    end
+
+this would assume that your account_statuses table looked something like:
+
+    +----+---------+
+    | id | name    |
+    +----+---------+
+    |  1 | active  |
+    |    ..        |
+    +----+---------+
+
+if your table used a different field, say :title, rather than name:
+
+    +----+---------+
+    | id | title   |
+    +----+---------+
+    |  1 | active  |
+    |    ..        |
+    +----+---------+
+
+then your model definition would look like:
+
+    class AccountStatus < ActiveRecord::Base
+      constantize :title
+      ..
+    end
+
+Finally, if you wanted only the :id to be returned from the constant all, rather than
+the entire model, you could do:
+
+
+    class AccountStatus < ActiveRecord::Base
+      constantize :name, :id
+      ..
+    end
+
+and your call to AccountStatus::ACTIVE would return only the interger :id value (1 in this
+case).
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
