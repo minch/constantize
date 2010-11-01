@@ -4,7 +4,7 @@ require 'constantize'
 
 describe Constantize do
 
-  context "returning model" do
+  context "returning object" do
     it "should set key to constantize" do
       BuoyType.instance_variable_get(:@key).should == :name
     end
