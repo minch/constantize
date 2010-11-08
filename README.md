@@ -30,8 +30,7 @@ One way would be to do something like:
       ..
     end
 
-which would work but in a production environment could result in a non-trivial amount
-of unecessary db queries.
+However, this approach can become tedious and tough to manage.
 
 Another way would be to dynamically create the constants for all the rows in the given
 table at rails start.  However, for models w/hundreds of rows, e.g., Country, City,
