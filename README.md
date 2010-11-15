@@ -18,7 +18,7 @@ end
 or
 
 <pre>
-User.create(:login => :foo, :user_status => UserStatus::ACTIVE)
+Bouy.create(:name => :foo, :bouy_type => BuoyType::NOAA)
 </pre>
 
 but weren't sure the best / most efficient way to implement?
@@ -94,7 +94,7 @@ where :key is the name of the field that will be used to build the finder.
 
 E.g., 
 
-    class AccountStatus < ActiveRecord::Base
+    class BuoyType < ActiveRecord::Base
       constantize :name
       ..
     end
@@ -104,7 +104,7 @@ this would assume that your account_statuses table looked something like:
     +----+---------+
     | id | name    |
     +----+---------+
-    |  1 | active  |
+    |  1 | noaa    |
     |    ..        |
     +----+---------+
 
@@ -113,13 +113,13 @@ if your table used a different field, say :title, rather than :name:
     +----+---------+
     | id | title   |
     +----+---------+
-    |  1 | active  |
+    |  1 | noaa    |
     |    ..        |
     +----+---------+
 
 then your model definition would look like:
 
-    class AccountStatus < ActiveRecord::Base
+    class BuoyType < ActiveRecord::Base
       constantize :title
       ..
     end
@@ -128,12 +128,12 @@ Finally, if you wanted only the :id to be returned from the constant call (rathe
 the entire model) you could do:
 
 
-    class AccountStatus < ActiveRecord::Base
+    class BuoyType < ActiveRecord::Base
       constantize :name, :id
       ..
     end
 
-and your call to AccountStatus::ACTIVE would return only the interger :id value (1 in this
+and your call to BuoyType::NOAA would return only the interger :id value (1 in this
 case).
 
 ## Note on Patches/Pull Requests
