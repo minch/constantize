@@ -99,7 +99,7 @@ E.g.,
       ..
     end
 
-this would assume that your account_statuses table looked something like:
+this would assume that your buoy_types table looked something like:
 
     +----+---------+
     | id | name    |
